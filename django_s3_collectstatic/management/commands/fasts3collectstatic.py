@@ -47,6 +47,8 @@ class Command(collectstatic.Command):
                     else:
                         full_path = None
                     # Skip the file if the source file is younger
+                    self.log('\tTarget last modified date: %s' % target_last_modified)
+                    self.log('\tSource last modified date: %s' % source_last_modified)
                     if target_last_modified >= source_last_modified:
                         if not ((self.symlink and full_path
                                  and not os.path.islink(full_path)) or
